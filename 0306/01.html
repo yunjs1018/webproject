@@ -4,8 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            transition: background-color 1s;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome</h1>
+    <h1 id="greeting">Welcome</h1>
+    <script>
+        const greetings = ["Welcome", "Hello", "Hi there"];
+        const colors = ["#FF5733", "#33FF57", "#3357FF"];
+        let index = 0;
+
+        function changeGreetingAndBackground() {
+            document.getElementById("greeting").innerText = greetings[index];
+            document.body.style.backgroundColor = colors[index];
+            index = (index + 1) % greetings.length;
+        }
+
+        setInterval(changeGreetingAndBackground, 3000);
+    </script>
 </body>
 </html>
